@@ -36,6 +36,15 @@ router.delete("/delete/:id", getTask, async (req, res) => {
   }
 });
 
+//complete or not
+router.put("/complete/:id", async (req, res) => {
+  const task = await Task.findById(req.params.id);
+
+  task.complete = !task.complete;
+
+  task.save();
+});
+
 //middleware
 async function getTask(req, res, next) {
   let task;
