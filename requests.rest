@@ -13,4 +13,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3030/users/ id here
+DELETE http://localhost:3030/tasks/id
