@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 //creating a task
 router.post("/", async (req, res) => {
   const task = new Task({
-    text: re.body.text,
+    text: req.body.text,
   });
 
   try {
@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 });
 
 //deleting a task
-router.delete("/:id", getTask, async (req, res) => {
+router.delete("/delete/:id", getTask, async (req, res) => {
   try {
     res.task.remove();
     res.json({ message: "Task deleted" });

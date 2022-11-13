@@ -8,9 +8,9 @@ POST http://localhost:3030/tasks
 Content-Type: application/json
 
 {
-    "text" : "get milk"
+    "text" : "get a life"
    
 }
 
 ###
-DELETE http://localhost:3030/tasks/id
+DELETE http://localhost:3030/tasks/delete/6370f77462bb8340b7b557cc
