@@ -1,0 +1,16 @@
+//getting all users
+GET http://localhost:3030/tasks
+
+###
+
+//creating a new user
+POST http://localhost:3030/tasks
+Content-Type: application/json
+
+{
+    "text" : "get milk"
+   
+}
+
+###
+DELETE http://localhost:3030/users/ id here
