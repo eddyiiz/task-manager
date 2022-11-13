@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ###
 //completing a task
-GET http://localhost:3030/tasks/complete/6370efc62f029b52e99b00d1
+GET http://localhost:3030/tasks/complete/id here
 
 ###
-DELETE http://localhost:3030/tasks/delete/6370f972348086eb85d03b8d
+DELETE http://localhost:3030/tasks/delete/id here
