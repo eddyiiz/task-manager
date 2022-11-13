@@ -37,7 +37,7 @@ router.delete("/:id", getTask, async (req, res) => {
 });
 
 //middleware
-const getTask = async (req, res, next) => {
+async function getTask(req, res, next) {
   let task;
   try {
     task = await Task.findById(req.params.id);
@@ -50,6 +50,6 @@ const getTask = async (req, res, next) => {
   res.task = task;
 
   next();
-};
+}
 
 module.exports = router;
