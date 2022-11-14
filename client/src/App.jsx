@@ -18,6 +18,28 @@ function App() {
       .catch((err) => console.error("error: ", err));
   };
 
+  const completeTask = async (id) => {
+    const data = await fetch(endpoint + "/tasks/complete/" + id).then((res) =>
+      res.json()
+    );
+    setTasks((tasks) =>
+      tasks.map((task) => {
+        if (task._id === data._id) {
+          task.complete = data.complete;
+        }
+        return task;
+      })
+    );
+  };
+
+  const deleteTask = async (id) => {
+    const data = await fetch(endpoint + "/tasks/delete/" + id, {
+      method: "DELETE",
+    }).then((res) => res.json());
+
+    setTasks((tasks) => tasks.filter((task) => task._id !== data._id));
+  };
+
   return (
     <div className="App">
       <h1>Task Manager</h1>
@@ -25,7 +47,11 @@ function App() {
 
       <div className="tasks">
         {tasks.map((task) => (
-          <div className="task">
+          <div
+            className={"task " + (task.complete ? "is-complete" : "")}
+            key={task._id}
+            onClick={() => completeTask(task._id)}
+          >
             <div className="checkbox"></div>
 
             <div className="text">{task.text}</div>
