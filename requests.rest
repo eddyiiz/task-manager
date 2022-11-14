@@ -8,7 +8,7 @@ POST http://localhost:3030/tasks
 Content-Type: application/json
 
 {
-    "text" : "get a life"
+    "text" : "get a girl"
    
 }
 
@@ -17,4 +17,4 @@ Content-Type: application/json
 GET http://localhost:3030/tasks/complete/6371d6b67374fbdbee9a54e3
 
 ###
-DELETE http://localhost:3030/tasks/delete/6371d6b67374fbdbee9a54e3
+DELETE http://localhost:3030/tasks/delete/6371f3dcbe5cb3693cd63593

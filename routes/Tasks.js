@@ -27,9 +27,9 @@ router.post("/", async (req, res) => {
 });
 
 //deleting a task
-router.delete("/delete/:id", getTask, async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
-    res.task.remove();
+    const result = await Task.findByIdAndDelete(req.params.id);
     res.json({ message: "Task deleted" });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -46,21 +46,5 @@ router.get("/complete/:id", async (req, res) => {
 
   res.json(task);
 });
-
-//middleware
-async function getTask(req, res, next) {
-  let task;
-  try {
-    task = await Task.findById(req.params.id);
-    if (task == null) {
-      return res.status(404).json({ message: "task not found!" });
-    }
-  } catch (error) {
-    return res.status(500).json({ mesage: error.mesage });
-  }
-  res.task = task;
-
-  next();
-}
 
 module.exports = router;

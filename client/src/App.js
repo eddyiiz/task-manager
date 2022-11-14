@@ -32,13 +32,13 @@ function App() {
     );
   };
 
-  const deleteTask = async (id) => {
+  async function deleteTask(id) {
     const data = await fetch(endpoint + "/tasks/delete/" + id, {
       method: "DELETE",
     }).then((res) => res.json());
 
     setTasks((tasks) => tasks.filter((task) => task._id !== data._id));
-  };
+  }
 
   return (
     <div className="App">
@@ -56,7 +56,12 @@ function App() {
 
             <div className="text">{task.text}</div>
 
-            <div className="delete-task">X</div>
+            <button
+              className="delete-task"
+              onClick={() => deleteTask(task._id)}
+            >
+              delete
+            </button>
           </div>
         ))}
       </div>
