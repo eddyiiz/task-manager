@@ -1,9 +1,9 @@
-//getting all users
+//getting all tasks
 GET http://localhost:3030/tasks
 
 ###
 
-//creating a new user
+//creating a new task
 POST http://localhost:3030/tasks
 Content-Type: application/json
 
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ###
 //completing a task
-GET http://localhost:3030/tasks/complete/id here
+GET http://localhost:3030/tasks/complete/6371d6b67374fbdbee9a54e3
 
 ###
-DELETE http://localhost:3030/tasks/delete/id here
+DELETE http://localhost:3030/tasks/delete/6371d6b67374fbdbee9a54e3
